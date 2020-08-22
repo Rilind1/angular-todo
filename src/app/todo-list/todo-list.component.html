@@ -1,0 +1,12 @@
+<div class="text-center">
+  <h1>add your Todo</h1>
+  <input
+    placeholder="Add Todo"
+    type="text"
+    name="todo"
+    id="todo"
+    [(ngModel)]="todoTitle"
+    (keyup.enter)="onAdd()"
+  />
+  <div *ngFor="let todo of todos">{{ todo.title }}</div>
+</div>
