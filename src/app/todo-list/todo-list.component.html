@@ -8,5 +8,12 @@
     [(ngModel)]="todoTitle"
     (keyup.enter)="onAdd()"
   />
-  <div *ngFor="let todo of todos">{{ todo.title }}</div>
+  <div (click)="onDelete(todo.id)" *ngFor="let todo of todoFiltered()">
+    {{ todo.title }}
+  </div>
+  <div>
+    <button (click)="filter = 'all'">All</button>
+    <button (click)="filter = 'active'">Active</button>
+    <button (click)="filter = 'completed'">Completed</button>
+  </div>
 </div>

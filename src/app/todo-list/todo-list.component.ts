@@ -9,11 +9,13 @@ import { Todo } from '../interfaces/todo-interface';
 export class TodoListComponent implements OnInit {
   todoTitle: string;
   todos: Todo[];
+  filter: string;
 
   constructor() {}
 
   ngOnInit(): void {
     this.todoTitle = '';
+    this.filter = 'all';
     this.todos = [
       {
         id: 1,
@@ -38,5 +40,20 @@ export class TodoListComponent implements OnInit {
       editing: false,
     });
     this.todoTitle = '';
+  }
+
+  onDelete(id: number) {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
+  }
+
+  todoFiltered(): Todo[] {
+    if (this.filter === 'all') {
+      return this.todos;
+    } else if (this.filter === 'active') {
+      return this.todos.filter((todo) => !todo.completed);
+    } else if (this.filter === 'completed') {
+      return this.todos.filter((todo) => todo.completed);
+    }
+    return this.todos;
   }
 }
