@@ -1,8 +1,8 @@
 <div class="container">
-  <form action="">
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
     <p>Fill out your information!</p>
     <div class="form-group">
-      <label for="email">E-mail address</label>
+      <label>E-mail address</label>
       <input
         type="email"
         name="email"
@@ -10,9 +10,14 @@
         class="form-control"
         required
         email
+        ngModel
+        #email="ngModel"
         placeholder="Enter e-mail"
       />
     </div>
+    <!-- <label *ngIf="email.touched && email.invalid" class="alert alert-danger"
+      >This email is invalid</label
+    > -->
     <div class="form-group">
       <label for="password">Password</label>
       <input
@@ -20,11 +25,20 @@
         name="password"
         id="pass"
         required
+        ngModel
         password
+        #password="ngModel"
         class="form-control"
         placeholder="Enter password"
       />
     </div>
-    <button class="btn btn-primary">Sign Up</button>
+    <!-- <label
+      *ngIf="password.touched && password.invalid"
+      class="alert alert-danger"
+      >This password is invalid</label
+    > -->
+    <button [disabled]="!authForm.valid" class="btn btn-primary">
+      Sign Up
+    </button>
   </form>
 </div>

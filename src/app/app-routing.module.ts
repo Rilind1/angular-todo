@@ -2,14 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes = [
-  { path: 'todo-list', component: TodoListComponent },
-  { path: 'signup', component: SignupComponent },
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
+@NgModule({})
 export class AppRoutingModule {}
