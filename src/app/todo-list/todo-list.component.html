@@ -6,14 +6,24 @@
     name="todo"
     id="todo"
     [(ngModel)]="todoTitle"
-    (keyup.enter)="onAdd()"
+    (keyup.enter)="addTodo()"
   />
-  <div (click)="onDelete(todo.id)" *ngFor="let todo of todoFiltered()">
+  <div *ngFor="let todo of todoFiltered()">
+    <input type="checkbox" [(ngModel)]="todo.completed" />
     {{ todo.title }}
+    <span (click)="onDelete(todo.id)"> &times;</span>
   </div>
   <div>
-    <button (click)="filter = 'all'">All</button>
-    <button (click)="filter = 'active'">Active</button>
-    <button (click)="filter = 'completed'">Completed</button>
+    <div>
+      <button (click)="filter = 'all'">
+        All
+      </button>
+      <button (click)="filter = 'active'">
+        Active
+      </button>
+      <button (click)="filter = 'completed'">
+        Completed
+      </button>
+    </div>
   </div>
 </div>

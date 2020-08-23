@@ -13,9 +13,9 @@ export class TodoListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.todoTitle = '';
+  ngOnInit() {
     this.filter = 'all';
+    this.todoTitle = '';
     this.todos = [
       {
         id: 1,
@@ -32,9 +32,9 @@ export class TodoListComponent implements OnInit {
     ];
   }
 
-  onAdd() {
+  addTodo() {
     this.todos.push({
-      id: 3,
+      id: 1,
       title: this.todoTitle,
       completed: false,
       editing: false,
