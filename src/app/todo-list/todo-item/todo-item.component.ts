@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { TodosService } from '../todo-list.service';
 import { NgForm } from '@angular/forms';
 import { Todo } from '../todo-list.model';
+import { StorageTodo } from '../../shared/storage.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -10,27 +11,21 @@ import { Todo } from '../todo-list.model';
   styleUrls: ['./todo-item.component.css'],
 })
 export class TodoItemComponent implements OnInit {
-  @ViewChild('forma', { static: false }) tlForm: NgForm;
-  subscription: Subscription;
-  editedItem: Todo;
+  constructor(
+    private todosService: TodosService,
+    private storageTodo: StorageTodo
+  ) {}
 
-  constructor(private todosService: TodosService) {}
-
-  ngOnInit(): void {
-    this.subscription = this.todosService.startedEditing.subscribe(
-      (index: number) => {
-        this.editedItem = this.todosService.getTodo(index);
-        this.tlForm.setValue({
-          todo: this.editedItem.title,
-        });
-      }
-    );
-  }
+  ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
     const value = form.value;
     const newTodo = new Todo(value.todo);
     this.todosService.addTodo(newTodo);
     form.reset();
+  }
+
+  onAddToServer() {
+    this.storageTodo.storeTodos();
   }
 }

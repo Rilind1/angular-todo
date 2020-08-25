@@ -5,9 +5,8 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class TodosService {
   todosChanged = new Subject<Todo[]>();
-  startedEditing = new Subject<number>();
 
-  private todos: Todo[] = [new Todo('Walk'), new Todo('Eat')];
+  private todos: Todo[] = [];
 
   getTodos() {
     return this.todos.slice();
@@ -23,7 +22,7 @@ export class TodosService {
   }
 
   addTodos(todos: Todo[]) {
-    todos.push(...todos);
+    this.todos.push(...todos);
     this.todosChanged.next(todos.slice());
   }
 

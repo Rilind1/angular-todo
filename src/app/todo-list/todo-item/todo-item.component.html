@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit(forma)" #forma="ngForm">
-  <div class="row">
+  <div class="form-group">
     <div class="col-xs-12">
       <label for="addTodo">Add Todo</label>
       <input
@@ -12,7 +12,9 @@
       />
     </div>
   </div>
-  <button [disabled]="!forma.valid" type="submit" class="btn btn-success">
+  <button type="submit" class="btn btn-success">
     Add
   </button>
+  |
+  <button class="btn btn-success" (click)="onAddToServer()">Save</button>
 </form>

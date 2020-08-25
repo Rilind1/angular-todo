@@ -11,8 +11,6 @@ export class StorageTodo {
     const todos = this.todosService.getTodos();
     this.http
       .put('https://todo-list-angular-6395f.firebaseio.com/todos.json', todos)
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .subscribe((response) => console.log(response));
   }
 }
