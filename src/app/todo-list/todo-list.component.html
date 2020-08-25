@@ -1,3 +1,13 @@
+<app-todo-item></app-todo-item>
+<hr />
+<ul class="list-group">
+  <a *ngFor="let todo of todos">{{ todo.title }} </a>
+</ul>
+
+<!-- *ngFor="let todosItem of todos; let i = index"
+      [todo]="todosItem"
+      [index]="i" -->
+<!-- 
 <h1>add your Todo</h1>
 <input
   placeholder="Add Todo"
@@ -24,4 +34,5 @@
       Completed
     </button>
   </div>
-</div>
+  <button (click)="onSaveData()">Save Todos</button>
+</div> -->
