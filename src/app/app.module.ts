@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodosService } from './todo-list/todo-list.service';
 import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     AuthComponent,
     TodoItemComponent,
     NavBarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

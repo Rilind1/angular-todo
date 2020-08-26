@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Todo } from '../todo-list/todo-list.model';
 
 import { TodosService } from '../todo-list/todo-list.service';
 
@@ -12,5 +13,13 @@ export class StorageTodo {
     this.http
       .put('https://todo-list-angular-6395f.firebaseio.com/todos.json', todos)
       .subscribe((response) => console.log(response));
+  }
+
+  fetchTodos() {
+    this.http
+      .get<Todo[]>('https://todo-list-angular-6395f.firebaseio.com/todos.json')
+      .subscribe((todos) => {
+        this.todosService.setTodos(todos);
+      });
   }
 }

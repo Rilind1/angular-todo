@@ -8,6 +8,11 @@ export class TodosService {
 
   private todos: Todo[] = [];
 
+  setTodos(todos: Todo[]) {
+    this.todos = todos;
+    this.todosChanged.next(this.todos.slice());
+  }
+
   getTodos() {
     return this.todos.slice();
   }

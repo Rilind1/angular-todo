@@ -28,4 +28,8 @@ export class TodoItemComponent implements OnInit {
   onAddToServer() {
     this.storageTodo.storeTodos();
   }
+
+  onFetchFromServer() {
+    this.storageTodo.fetchTodos();
+  }
 }
