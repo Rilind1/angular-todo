@@ -7,5 +7,9 @@ import { Route } from '@angular/compiler/src/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'todo-angular';
+  loadedFeature = 'todo';
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 }

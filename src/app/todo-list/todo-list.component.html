@@ -1,10 +1,8 @@
-<div class="container">
-  <app-todo-item></app-todo-item>
-  <hr />
-  <ul class="list-group">
-    <a *ngFor="let todo of todos">{{ todo.title }} </a>
-  </ul>
-</div>
+<app-todo-item></app-todo-item>
+<hr />
+<ul class="list-group">
+  <a *ngFor="let todo of todos">{{ todo.title }} </a>
+</ul>
 
 <!-- *ngFor="let todosItem of todos; let i = index"
       [todo]="todosItem"

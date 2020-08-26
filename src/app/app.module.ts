@@ -5,13 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodosService } from './todo-list/todo-list.service';
 import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
-
-const routes: Routes = [{ path: 'todo-list', component: TodoListComponent }];
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +17,7 @@ const routes: Routes = [{ path: 'todo-list', component: TodoListComponent }];
     TodoListComponent,
     AuthComponent,
     TodoItemComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +25,6 @@ const routes: Routes = [{ path: 'todo-list', component: TodoListComponent }];
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
   ],
   providers: [TodosService],
   bootstrap: [AppComponent],
