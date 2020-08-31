@@ -1,7 +1,9 @@
 <app-todo-item></app-todo-item>
 <hr />
 <ul class="list-group">
-  <a *ngFor="let todo of todos">{{ todo.title }} </a>
+  <a *ngFor="let todo of todos">
+    <span (click)="onDeleteTodo()">&times;</span> {{ todo.title }}
+  </a>
 </ul>
 
 <!-- *ngFor="let todosItem of todos; let i = index"

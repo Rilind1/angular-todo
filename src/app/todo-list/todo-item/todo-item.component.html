@@ -10,11 +10,12 @@
             class="form-control"
             name="todo"
             ngModel
+            #todo="ngModel"
             required
           />
         </div>
       </div>
-      <button type="submit" class="btn btn-success">
+      <button [disabled]="!todo.valid" type="submit" class="btn btn-success">
         Add
       </button>
       |

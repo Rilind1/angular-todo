@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class TodoListComponent implements OnInit, OnDestroy {
   // todoTitle: string;
   todos: Todo[];
+  id: number;
   // filter: string;
   private subscription: Subscription;
 
@@ -30,6 +31,9 @@ export class TodoListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onDeleteTodo() {
+    this.todosService.deleteTodo(this.id);
+  }
   // addTodo() {
   //   this.todos.push({
   //     id: 1,
